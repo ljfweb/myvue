@@ -1,0 +1,843 @@
+$(function(){
+	if(checkCookie("address")){
+		$('#mask_box').css("display","none")
+    	$('#mask_layer').css("display","none")
+    	
+	}
+	var arr_first=[]
+	var arr_second=[]
+	var arr_third=[]
+	$.each(list_food.meat,function(i,ele){
+		var k=list_food.meat[i].data
+		$.each(k,function(i,ele){
+			arr_third.push(k[i])
+			var x=parseFloat(k[i].price)-parseFloat(k[i].vipPrice)
+			if(x>=10&&x<=15){
+				
+				arr_first.push(k[i])
+				
+			}
+			if(x>20){
+				arr_second.push(k[i])
+			}
+		})
+	})
+	$.each(list_food.seafood,function(i,ele){
+		var k=list_food.seafood[i].data
+		$.each(k,function(i,ele){
+				var x=parseFloat(k[i].price)-parseFloat(k[i].vipPrice)
+				console.log(x)
+			if(x>=10&&x<=15){
+				arr_first.push(k[i])
+				
+			}
+			if(x>20){
+				arr_second.push(k[i])
+			}
+		})
+	})
+	$.each(list_food.snacks,function(i,ele){
+		var k=list_food.snacks[i].data
+		$.each(k,function(i,ele){
+				var x=parseFloat(k[i].price)-parseFloat(k[i].vipPrice)
+				console.log(x)
+			if(x>=10&&x<=15){
+				arr_first.push(k[i])
+				
+			}
+			if(x>20){
+				arr_second.push(k[i])
+			}
+		})
+	})
+	$.each(list_food.milk,function(i,ele){
+		var k=list_food.milk[i].data
+		$.each(k,function(i,ele){
+				var x=parseFloat(k[i].price)-parseFloat(k[i].vipPrice)
+				console.log(x)
+			if(x>=10&&x<=15){
+				arr_first.push(k[i])
+				
+			}
+			if(x>20){
+				arr_second.push(k[i])
+			}
+		})
+	})
+	$.each(list_food.tea,function(i,ele){
+		var k=list_food.tea[i].data
+		$.each(k,function(i,ele){
+				var x=parseFloat(k[i].price)-parseFloat(k[i].vipPrice)
+				console.log(x)
+			if(x>=10&&x<=15){
+				arr_first.push(k[i])
+				
+			}
+			if(x>20){
+				arr_second.push(k[i])
+			}
+		})
+	})
+	$.each(list_food.wine,function(i,ele){
+		var k=list_food.wine[i].data
+		$.each(k,function(i,ele){
+				var x=parseFloat(k[i].price)-parseFloat(k[i].vipPrice)
+				console.log(x)
+			if(x>=10&&x<=15){
+				arr_first.push(k[i])
+				
+			}
+			if(x>20){
+				arr_second.push(k[i])
+			}
+		})
+	})
+	$.each(list_fruit.kind,function(i,ele){
+		var k=list_fruit.kind[i].data
+		$.each(k,function(i,ele){
+				var x=parseFloat(k[i].price)-parseFloat(k[i].vipPrice)
+				console.log(x)
+			if(x>=10&&x<=15){
+				arr_first.push(k[i])
+				
+			}
+			if(x>20){
+				arr_second.push(k[i])
+			}
+		})
+	})
+	$.each(list_grain.kind,function(i,ele){
+		var k=list_grain.kind[i].data
+		$.each(k,function(i,ele){
+				var x=parseFloat(k[i].price)-parseFloat(k[i].vipPrice)
+				console.log(x)
+			if(x>=10&&x<=15){
+				arr_first.push(k[i])
+				
+			}
+			if(x>20){
+				arr_second.push(k[i])
+			}
+		})
+	})
+	console.log(arr_first)
+	console.log(arr_second)
+	console.log(arr_third)
+	var str_first=""
+     var str_second=""
+      
+
+
+	$.each(arr_first,function(i,ele){
+	
+			str_first+='<li>'
+						+'<a class="f15 index_per_text" href="javascript:void(0)" title="'+arr_first[i].name+'">'+arr_first[i].name+'</a>'
+						+'<span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+arr_first[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+arr_first[i].vipPrice+'</span>'
+					
+						+'<a href="javascript:void(0)" class="index_per_shoppongCar">	<img src="'+arr_first[i].src+'" title="'+arr_first[i].name+'"/>'
+						
+						+'  <a class="shoppingCar" href="javascript:void(0)">'
+						 + '	<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 +' </a>'
+						+'</a>'
+					
+					+'</li>'	
+	})
+	$('#index_per_first').append(str_first)
+	$.each(arr_second,function(i,ele){
+	
+			str_second+='<li>'
+					+'<a href="javascript:void(0)">'
+									+'<img src="'+arr_second[i].src+'" title="'+arr_second[i].name+'"/>'
+								+'</a>'
+								+'<a href="javascript:void(0)" class="f14 index_time_imgTitle" style="display: inline-block;height: 18px;overflow: hidden;">'+arr_second[i].name+'</a>'
+								+'<span class="f14" style="color: #f33f00;font-weight: bold;">'+arr_second[i].price+'</span><br />'
+								+'<span class="f14">会员价</span>&nbsp;<span class="f14" style="color: #f33f00;font-weight: bold;">'+arr_second[i].vipPrice+'</span><br />'
+								+'<button>抢购</button>'
+					
+					+'</li>'
+
+	})
+	$('.index_time_bottom ul').append(str_second)
+	var str_product_first=""
+	var str_product_second=""
+	$.each(list_fruit.kind[0].data,function(i,ele){
+	  if(i>3){
+	  	return false;
+	  }
+	  if(list_fruit.kind[0].data[i].vipPrice==""){
+	  	str_product_first+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_fruit.kind[0].data[i].src+'" title="'+list_fruit.kind[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_fruit.kind[0].data[i].name+'">'+list_fruit.kind[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_fruit.kind[0].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_first+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_fruit.kind[0].data[i].src+'" title="'+list_fruit.kind[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_fruit.kind[0].data[i].name+'">'+list_fruit.kind[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_fruit.kind[0].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_fruit.kind[0].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	  
+		
+	})
+	$.each(list_fruit.kind[1].data,function(i,ele){
+	  if(i>3){
+	  	return false;
+	  }
+	  if(list_fruit.kind[1].data[i].vipPrice==""){
+	  	str_product_first+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_fruit.kind[1].data[i].src+'" title="'+list_fruit.kind[1].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_fruit.kind[1].data[i].name+'">'+list_fruit.kind[1].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_fruit.kind[1].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_first+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_fruit.kind[1].data[i].src+'" title="'+list_fruit.kind[1].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_fruit.kind[1].data[i].name+'">'+list_fruit.kind[1].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_fruit.kind[1].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_fruit.kind[1].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	  
+		
+	})
+	$('#product_fruit .product_type_mid_img').append(str_product_first)
+	
+	$.each(list_food.meat[0].data,function(i,ele){
+	  if(i>3){
+	  	return false;
+	  }
+	  if(list_food.meat[0].data[i].vipPrice==""){
+	  	str_product_second+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.meat[0].data[i].src+'" title="'+list_food.meat[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.meat[0].data[i].name+'">'+list_food.meat[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.meat[0].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_second+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.meat[0].data[i].src+'" title="'+list_food.meat[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.meat[0].data[i].name+'">'+list_food.meat[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.meat[0].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_food.meat[0].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	  
+		
+	})
+	$.each(list_food.seafood[1].data,function(i,ele){
+	  if(i>3){
+	  	return false;
+	  }
+	  if(list_food.seafood[1].data[i].vipPrice==""){
+	  	str_product_second+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.seafood[1].data[i].src+'" title="'+list_food.seafood[1].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.seafood[1].data[i].name+'">'+list_food.seafood[1].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.seafood[1].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_second+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.seafood[1].data[i].src+'" title="'+list_food.seafood[1].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.seafood[1].data[i].name+'">'+list_food.seafood[1].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.seafood[1].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_food.seafood[1].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	  
+		
+	})
+	$('#product_meat .product_type_mid_img').append(str_product_second)
+	var str_product_third=""
+	$.each(arr_first,function(i,ele){
+		
+		str_product_third+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+arr_first[i].src+'" title="'+arr_first[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+arr_first[i].name+'">'+arr_first[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+arr_first[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+arr_first[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+		
+	})
+	$('#product_milk .product_type_mid_img').append(str_product_third)
+	var str_product_fourth=""
+	$.each(list_grain.kind[0].data,function(i,ele){
+	  if(i>3){
+	  	return false;
+	  }
+	  if(list_grain.kind[0].data[i].vipPrice==""){
+	  	str_product_fourth+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_grain.kind[0].data[i].src+'" title="'+list_grain.kind[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_grain.kind[0].data[i].name+'">'+list_grain.kind[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_grain.kind[0].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_fourth+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_grain.kind[0].data[i].src+'" title="'+list_grain.kind[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_grain.kind[0].data[i].name+'">'+list_grain.kind[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_grain.kind[0].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_grain.kind[0].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	  
+		
+	})
+	$.each(list_grain.kind[1].data,function(i,ele){
+	  
+	  if(list_grain.kind[1].data[i].vipPrice==""){
+	  	str_product_fourth+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_grain.kind[1].data[i].src+'" title="'+list_grain.kind[1].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_grain.kind[1].data[i].name+'">'+list_grain.kind[1].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_grain.kind[1].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_first+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_grain.kind[1].data[i].src+'" title="'+list_grain.kind[1].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_grain.kind[1].data[i].name+'">'+list_grain.kind[1].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_grain.kind[1].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_grain.kind[1].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	  
+		
+	})
+	$('#product_grain .product_type_mid_img').append(str_product_fourth)
+	var str_product_fifth=""
+	$.each(list_food.snacks[0].data, function(i,ele) {
+		 if(list_food.snacks[0].data[i].vipPrice==""){
+	  	str_product_fifth+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.snacks[0].data[i].src+'" title="'+list_food.snacks[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.snacks[0].data[i].name+'">'+list_food.snacks[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.snacks[0].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_fifth+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.snacks[0].data[i].src+'" title="'+list_food.snacks[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.snacks[0].data[i].name+'">'+list_food.snacks[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.snacks[0].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_food.snacks[0].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	});
+	$('#product_snacks .product_type_mid_img').append(str_product_fifth)
+		var str_product_sixth=""
+	$.each(list_food.milk[0].data, function(i,ele) {
+		 if(list_food.milk[0].data[i].vipPrice==""){
+	  	str_product_sixth+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.milk[0].data[i].src+'" title="'+list_food.milk[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.milk[0].data[i].name+'">'+list_food.milk[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.milk[0].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_sixth+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.milk[0].data[i].src+'" title="'+list_food.milk[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.milk[0].data[i].name+'">'+list_food.milk[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.milk[0].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_food.milk[0].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	});
+	$.each(list_food.tea[0].data, function(i,ele) {
+		 if(list_food.tea[0].data[i].vipPrice==""){
+	  	str_product_sixth+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.tea[0].data[i].src+'" title="'+list_food.tea[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.tea[0].data[i].name+'">'+list_food.tea[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.tea[0].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_sixth+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.tea[0].data[i].src+'" title="'+list_food.tea[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.tea[0].data[i].name+'">'+list_food.tea[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.tea[0].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_food.tea[0].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	});
+	
+	$('#product_drink .product_type_mid_img').append(str_product_sixth)
+	  var str_product_seventh="";
+     $.each(list_food.tea[0].data, function(i,ele) {
+		 if(list_food.tea[0].data[i].vipPrice==""){
+	  	str_product_seventh+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.tea[0].data[i].src+'" title="'+list_food.tea[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.tea[0].data[i].name+'">'+list_food.tea[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.tea[0].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_seventh+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.tea[0].data[i].src+'" title="'+list_food.tea[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.tea[0].data[i].name+'">'+list_food.tea[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.tea[0].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_food.tea[0].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	});
+	 $.each(list_food.wine[0].data, function(i,ele) {
+		 if(list_food.wine[0].data[i].vipPrice==""){
+	  	str_product_seventh+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.wine[0].data[i].src+'" title="'+list_food.wine[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.wine[0].data[i].name+'">'+list_food.wine[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.wine[0].data[i].price+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  }else{
+	  	str_product_seventh+='<dl class="product_first">'
+		          +'<dt>'
+								+'<a href="javascript:void(0)" class="product_imgBox">'
+									+'<img src="'+list_food.wine[0].data[i].src+'" title="'+list_food.wine[0].data[i].name+'">'
+									+'</a>'
+									+'<div class="shoppingCar_product" >'
+						+'<img src="img/QQ图片20170703110227.png"><span class="f14" style="color: white;margin-left: 55px;line-height: 24px;">加入购物车</span>'
+						 
+						+ '</div>' 
+						+' </dt>'
+		                +'<dd>'
+								
+								+'<a href="javascript:void(0)" style="color: #666666;" title="'+list_food.wine[0].data[i].name+'">'+list_food.wine[0].data[i].name
+								+'</a></dd>'
+								+'<dd><span class="f13" style="color: #f33f00;">￥</span><span class="f15" style="color: #f33f00;">'+list_food.wine[0].data[i].price+'</span><span style="margin-left: 12px;">会员价</span><span style="color: #f43f00;">￥</span><span class="f15" style="color: #f43f00;">'+list_food.wine[0].data[i].vipPrice+'</span>'
+								+'</dd>'
+							+'</dl>'
+	  	
+	  }
+	});
+	$('#product_wine .product_type_mid_img').append(str_product_seventh)
+	var str_address_huadong=""
+	var str_address_huanan=""
+	var str_address_huabei=""
+	var str_address_huazhong=""
+	var str_address_dongbei=""
+	var str_address_xinan=""
+	var str_address_xibei=""
+   $.each(list_address.huadong,function(i,ele){
+   	
+   	str_address_huadong+='<li><a href="javascript:void(0)">'+list_address.huadong[i] +'</a></li>'
+								
+   	
+   })
+  
+    $.each(list_address.huanan,function(i,ele){
+   	
+   	str_address_huanan+='<li><a href="javascript:void(0)">'+list_address.huanan[i] +'</a></li>'
+								
+   	
+   })
+    $.each(list_address.huabei,function(i,ele){
+   	
+   	str_address_huabei+='<li><a href="javascript:void(0)">'+list_address.huabei[i] +'</a></li>'
+								
+   	
+   })
+    $.each(list_address.huazhong,function(i,ele){
+   	
+   	str_address_huazhong+='<li><a href="javascript:void(0)">'+list_address.huazhong[i] +'</a></li>'
+								
+   	
+   })
+    $.each(list_address.dongbei,function(i,ele){
+   	
+   	str_address_dongbei+='<li><a href="javascript:void(0)">'+list_address.dongbei[i] +'</a></li>'
+								
+   	
+   })
+    $.each(list_address.xinan,function(i,ele){
+   	
+   	str_address_xinan+='<li><a href="javascript:void(0)">'+list_address.xinan[i] +'</a></li>'
+								
+   	
+   })
+    $.each(list_address.xibei,function(i,ele){
+   	
+   	str_address_xibei+='<li><a href="javascript:void(0)">'+list_address.xibei[i] +'</a></li>'
+								
+   	
+   })
+    
+    
+    
+   $('#mask_box .huadong ul').append(str_address_huadong)
+   $('#mask_box .huanan ul').append(str_address_huanan)
+    $('#mask_box .huabei ul').append(str_address_huabei)
+    $('#mask_box .huazhong ul').append(str_address_huazhong)
+     $('#mask_box .dongbei ul').append(str_address_dongbei)
+      $('#mask_box .xinan ul').append(str_address_xinan)
+       $('#mask_box .xibei ul').append(str_address_xibei)
+    
+    
+    
+    
+   
+   $('.address_right li ul li a').toggle(function(){
+   		var li_index= $(this).parent().parent().parent().index()
+   		if($('.creat_ul')){
+   			$('#mask_box').css("height","360px")
+   				$('#mask_box .mask_box_bottom').css("height","254px")
+   			$('.creat_ul').parent().css("height","35px")
+   			var lis_index=$('.creat_ul').parent().index()
+   	     $('.address_left li').eq(lis_index).css("height","35px")
+   			 	$('.creat_ul').remove();
+   			 	
+   		}
+  
+   	$(this).parent().parent().parent().append('<ul class="creat_ul"></ul>')
+   
+		 var str_ul=""
+		 
+		 var that=$(this)
+
+	  $.each(list_address.huadong, function(i,ele) {
+		  	if(list_address.huadong[i]==that.html()){
+	  		$.each(list_address.huadongshi[i],function(j,ele){
+	  			str_ul+='<li class="creat_li"><a href="javascript:void(0)">'+list_address.huadongshi[i][j]+'</a></li>'
+	  		})
+	  	}
+		  });
+		  $.each(list_address.huanan, function(i,ele) {
+		  	if(list_address.huanan[i]==that.html()){
+	  		$.each(list_address.huananshi[i],function(j,ele){
+	  			str_ul+='<li class="creat_li"><a href="javascript:void(0)">'+list_address.huananshi[i][j]+'</a></li>'
+	  		})
+	  	}
+		  });
+		  $.each(list_address.huabei, function(i,ele) {
+		  	if(list_address.huabei[i]==that.html()){
+	  		$.each(list_address.huabeishi[i],function(j,ele){
+	  			str_ul+='<li class="creat_li"><a href="javascript:void(0)">'+list_address.huabeishi[i][j]+'</a></li>'
+	  		})
+	  	}
+		  });
+		  $.each(list_address.huazhong, function(i,ele) {
+		  	if(list_address.huazhong[i]==that.html()){
+	  		$.each(list_address.huazhongshi[i],function(j,ele){
+	  			str_ul+='<li class="creat_li"><a href="javascript:void(0)">'+list_address.huazhongshi[i][j]+'</a></li>'
+	  		})
+	  	}
+		  });
+		  $.each(list_address.xibei, function(i,ele) {
+		  	if(list_address.xibei[i]==that.html()){
+	  		$.each(list_address.xibeishi[i],function(j,ele){
+	  			str_ul+='<li class="creat_li"><a href="javascript:void(0)">'+list_address.xibeishi[i][j]+'</a></li>'
+	  		})
+	  	}
+		  });
+		  $.each(list_address.dongbei, function(i,ele) {
+		  	if(list_address.dongbei[i]==that.html()){
+	  		$.each(list_address.dongbeishi[i],function(j,ele){
+	  			str_ul+='<li class="creat_li"><a href="javascript:void(0)">'+list_address.dongbeishi[i][j]+'</a></li>'
+	  		})
+	  	}
+		  });
+		  $.each(list_address.xinan, function(i,ele) {
+		  	if(list_address.xinan[i]==that.html()){
+	  		$.each(list_address.xinanshi[i],function(j,ele){
+	  			str_ul+='<li class="creat_li"><a href="javascript:void(0)">'+list_address.xinanshi[i][j]+'</a></li>'
+	  		})
+	  	}
+		  });
+		  
+		  
+		$('.creat_ul').append(str_ul)
+		var ul_h=$('.creat_ul').innerHeight()
+		console.log(li_index)
+		
+		
+		$('#mask_box').css("height",360+ul_h)
+		$('#mask_box .mask_box_bottom').css("height",254+ul_h)
+		$(this).parent().parent().parent().css("height",35+ul_h)
+		$('.address_left li').eq(li_index).css("height",35+ul_h)
+		
+		 $('.creat_ul .creat_li a').click(function(){
+    	$('#mask_box').css("display","none")
+    	$('#mask_layer').css("display","none")
+   	  $('.creat_ul').remove()
+   	  var a_value=$(this).html()
+   	  setCookie("address",a_value,1000)
+   	  var x=getCookie("address")
+    	console.log(x)
+    	
+    	$('.header_top_address .address_text').html(x)
+   })
+	},function(){
+		if($('.creat_ul')){
+   			$('#mask_box').css("height","360px")
+   				$('#mask_box .mask_box_bottom').css("height","254px")
+   			$('.creat_ul').parent().css("height","35px")
+   			var lis_index=$('.creat_ul').parent().index()
+   	     $('.address_left li').eq(lis_index).css("height","35px")
+   			 	$('.creat_ul').remove();
+   			 	
+   		}
+		 	var li_index= $(this).parent().parent().parent().index()
+		$('#mask_box').css("height","360px")
+		$('#mask_box .mask_box_bottom').css("height","254px")
+		$(this).parent().parent().parent().css("height","35px")
+		$('.address_left li').eq(li_index).css("height","35px")
+			$('.creat_ul').remove()
+	}
+   )
+  
+   
+})
+

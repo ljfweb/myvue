@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/login.css"/>
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<div class="bigbox">
+			<div class="box_img">
+				<img src="../img/logo.png" /><a class="f20" href="javascript:void(0)" style="color: #515151;">欢迎登录</a>
+			</div>
+			<div class="inp_box">
+				<div class="inp_box_mid">
+					<div class="inp_box_mid_top">
+						<span class="f16" style="color: #515151;margin-left: 550px;">你还未登录</span><a class="registered" href="registered.html">免费注册</a>
+					</div>
+					<div class="inp_box_mid_mid">
+						<img src="../img/e992221b992be3ecac9a55bd920d5917.png">
+						<div class="login_box">
+							<ul>
+								<li>
+									<a href="javascript:void(0)">
+										<img src="../img/QQ图片20170707113225.png" />优选账号
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0)">
+										<img src="../img/QQ图片20170707113341.png" />速运账号
+									</a>
+								</li>
+							</ul>
+							<div class="login_toggle">
+								<div class="youxuan">
+									<img src="../img/QQ图片20170707164653.png" class="login_img_first">
+									<img src="../img/QQ图片20170707164716.png" class="login_img_second">
+									<span>手机/验证邮箱/用户名</span><br />
+									<input type="text" /><br>
+									<span>登录密码</span><br />
+									<input type="text"/><br />
+									<input type="text" name="" id="" class="inp_code" value="" /> <div class="code"></div><br />
+									<a href="javascript:void(0)" class="check_pass">忘记密码?</a>
+									<input type="button" value="登录"/>
+								</div> 
+								<div class="suyun">
+									<img src="../img/QQ图片20170707164653.png" class="login_img_first">
+									<img src="../img/QQ图片20170707164716.png" class="login_img_second">
+									<span>手机/验证邮箱/用户名</span><br />
+									<input type="text" /><br>
+									<span>登录密码</span><br />
+									<input type="text"/>
+									<input type="text" name="" id="" class="inp_code" value="" /> <div class="code"></div><br />
+								
+									<input type="button" value="登录"/><br /><br />
+									<span style="margin-left:150px ;">登录即视为同意</span>	<a href="javascript:void(0)" class="pro">《联合登录授权协议》</a>
+								</div>
+							</div>
+							<div class="login_bottom">
+								<div >
+										<a href="javascript:void(0)">
+											<img src="../img/QQ图片20170707165650.png" >
+										</a><br />
+										<a href="javascript:void(0)"  style="left: 22px;">QQ</a>
+									</div>
+										<div>
+										<a href="javascript:void(0)">
+											<img src="../img/QQ图片20170707171247.png">
+										</a><br />
+										<a href="javascript:void(0)" style="left: 12px;">新浪微博</a>
+									</div>
+									<div>
+										<a href="javascript:void(0)">
+											<img src="../img/QQ图片20170707171347.png">
+										</a><br />
+										<a href="javascript:void(0)" style="left: 12px;">腾讯微博</a>
+									</div>
+										<div>
+										<a href="javascript:void(0)">
+											<img src="../img/QQ图片20170707171429.png">
+										</a><br />
+										<a href="javascript:void(0)" style="left: 15px;">支付宝</a>
+									</div>
+										<div>
+										<a href="javascript:void(0)">
+											<img src="../img/QQ图片20170707171530.png">
+										</a><br />
+										<a href="javascript:void(0)" style="left: 22px;">微信</a>
+									</div>
+							
+								
+							</div>
+						</div>
+					</div>
+					<div class="inp_box_mid_bottom">
+						<ul>
+							<li>
+								<a href="javascript:void(0)">关于我们</a>
+							</li>
+							<li>
+									<a href="javascript:void(0)">联系我们</a>
+							</li>
+							<li>
+									<a href="javascript:void(0)">招聘人才</a>
+							</li>
+							<li>
+									<a href="javascript:void(0)">友情链接</a>
+							</li>
+							<li>
+									<a href="javascript:void(0)">供应商申请</a>
+							</li>
+						</ul><br />
+						<span style="display: block ;margin: 0 auto;width: 162px;margin-top: 10px;margin-bottom: 10px;">北京顺丰电子商务有限公司</span>
+						<span style="margin-left: 230px;">北京市公安局顺义分局备案11011302000890号</span><span>丨</span><a href="javascript:void(0)">京ICP备12011349号</a><span>丨</span><a href="javascript:void(0)">企业执照</a>
+						<br />
+						<span style="display: block ;margin: 0 auto;width: 242px;margin-top: 10px;">Copyright© 顺丰优选 sfbest.com 版权所有</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$('.youxuan').css("display","block").siblings().css("display","none")
+			$('.login_box ul li').click(function(){
+				$(this).children('a').css({"border-bottom":"transparent","border-top":"2px solid #69af05"})
+				$(this).siblings().children('a').css({"border-bottom":"1px solid #cdcdcd","border-top":"transparent"})
+				
+			})
+			$('.login_box ul li').eq(1).click(function(){
+				$('.login_box').css("height","426px")
+				$('.login_toggle').css("height","340px")
+				$('.suyun').css("display","block").siblings().css("display","none")
+			}
+			)
+			$('.login_box ul li').eq(0).click(function(){
+				$('.login_box').css("height","398px")
+				$('.login_toggle').css("height","310px")
+				$('.youxuan').css("display","block").siblings().css("display","none")
+			}
+			)
+				var arr_code=[0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K','L', 'M', 'N', 'O', 'P', 'Q','R','S','T','U','V','W','X','Y','Z']
+		console.log(arr_code.length)
+		var str=""
+		
+			var x=Math.floor(Math.random()*arr_code.length)
+			console.log(x)
+			var y=Math.floor(Math.random()*arr_code.length)
+			var m=Math.floor(Math.random()*arr_code.length)
+			var n=Math.floor(Math.random()*arr_code.length)
+			str='<li>'+arr_code[x]+'</li><li>'+arr_code[y]+'</li><li>'+arr_code[m]+'</li><li>'+arr_code[n]+'</li>'
+	
+		$('.code').html(str)
+			
+			
+			
+			
+		})
+		
+		
+	</script>
+</html>
